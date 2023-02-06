@@ -18,7 +18,7 @@ function App() {
             <Button>Hide Ads!</Button>
         </div>
         <div>
-            <Button>Another One!SS</Button>
+            <Button>Something!</Button>
         </div>
     </div>;
 }

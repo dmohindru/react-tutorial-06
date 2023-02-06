@@ -12,7 +12,7 @@ function Button({
     
 }) {
 
-    return <button>{ children }</button>
+    return <button class="bg-blue-900">{ children }</button>
 }
 
 Button.propTypes = {
