@@ -38,7 +38,19 @@ import './index.css';
 
 # Running this project
 Install prop types library
-```npm install prop-types```
+```
+npm install prop-types
+```
+
+Install classnames library
+```
+npm install classnames
+```
+
+Install react-icon library
+```
+npm install react-icons
+```
 
 # Important
 - [Brief App descrition](https://www.udemy.com/course/react-redux/learn/lecture/34694954#content)
