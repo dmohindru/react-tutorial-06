@@ -2,8 +2,11 @@
 
 # Description
 This application demonstrates how to build most commonly used components in any React applications. This app also demonstartes how to build base component and customise it with react prop system.
-Some of the components built in this app are:
+Some important videos
+=> (Event and State design process)[https://www.udemy.com/course/react-redux/learn/lecture/34695178#content]
+Components built in this app are:
 1. Button. [Bit of button theory](https://www.udemy.com/course/react-redux/learn/lecture/34694972#content)
+2. Accordion. [Accordion overview](https://www.udemy.com/course/react-redux/learn/lecture/34695162#content)
 
 # TailwindCSS installation steps
 1. Install tailwindCSS
@@ -36,7 +39,7 @@ import './index.css';
 ``` 
 
 
-# Running this project
+# Installing libraries for this project
 Install prop types library
 ```
 npm install prop-types
