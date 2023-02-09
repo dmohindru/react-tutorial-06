@@ -7,6 +7,7 @@ Some important videos
 Components built in this app are:
 1. Button. [Bit of button theory](https://www.udemy.com/course/react-redux/learn/lecture/34694972#content)
 2. Accordion. [Accordion overview](https://www.udemy.com/course/react-redux/learn/lecture/34695162#content)
+3. Dropdown. [Drowndown overview](https://www.udemy.com/course/react-redux/learn/lecture/34695264#content)
 
 # TailwindCSS installation steps
 1. Install tailwindCSS
