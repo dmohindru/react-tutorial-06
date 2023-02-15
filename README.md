@@ -4,6 +4,7 @@
 This application demonstrates how to build most commonly used components in any React applications. This app also demonstartes how to build base component and customise it with react prop system.
 Some important videos
 => (Event and State design process)[https://www.udemy.com/course/react-redux/learn/lecture/34695178#content]
+=> (Bubbling and capturing of events)[https://www.udemy.com/course/react-redux/learn/lecture/34695346#content]
 Components built in this app are:
 1. Button. [Bit of button theory](https://www.udemy.com/course/react-redux/learn/lecture/34694972#content)
 2. Accordion. [Accordion overview](https://www.udemy.com/course/react-redux/learn/lecture/34695162#content)
@@ -59,3 +60,4 @@ npm install react-icons
 # Important
 - [Brief App descrition](https://www.udemy.com/course/react-redux/learn/lecture/34694954#content)
 - [TailwindCSS](https://tailwindcss.com/docs/installation)
+- [Bubbling and capturing of events](https://javascript.info/bubbling-and-capturing)
