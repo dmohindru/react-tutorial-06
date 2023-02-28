@@ -15,6 +15,7 @@ Components built in this app are:
 5. Link. [Link overview](https://www.udemy.com/course/react-redux/learn/lecture/34696430#content)
 6. Route. [Route overview](https://www.udemy.com/course/react-redux/learn/lecture/34696436#content)
 7. Sidebar. [Sidebar overview](https://www.udemy.com/course/react-redux/learn/lecture/34696446#content)
+8. Modal. [Modal overview](https://www.udemy.com/course/react-redux/learn/lecture/34696456#content)
 
 # TailwindCSS installation steps
 1. Install tailwindCSS
