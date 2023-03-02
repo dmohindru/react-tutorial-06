@@ -1,20 +1,24 @@
-function Table({ data, config }) {
+function Table({ data, config, keyFn }) {
+
+    // Render table header columns according to number of objects received in config array
     const renderedHeaders = config.map((column) => {
         return (
             <th key={column.label}>{column.label}</th>
         )
     })
     
-    const renderedRows = data.map((fruit) => {
+    // Render data table row 
+    const renderedRows = data.map((rowData) => {
+        // Map over each object in config array to render each cell of table data row
+        const renderedCells = config.map((column) => {
+            return <td className="p-2" key={column.label}>{column.render(rowData)}</td>
+        });
+
         return (
-            <tr className="border-b" key={fruit.name}>
-                <td className="p-3">{fruit.name}</td>
-                <td className="p-3">
-                    <div className={`p-3 m-2 ${fruit.color}`}></div>
-                </td>
-                <td className="p-3">{fruit.score}</td>
+            <tr className="border-b" key={keyFn(rowData)}>
+               {renderedCells} 
             </tr>
-        )
+        );
     });
 
 

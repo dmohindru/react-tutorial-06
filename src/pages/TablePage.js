@@ -1,6 +1,8 @@
 import Table from "../components/Table";
 
 function TablePage() {
+
+    // Data that need to be displayed in Table component
     const data = [
         { name: 'Orange', color: 'bg-orange-500', score: 5},
         { name: 'Apple', color: 'bg-red-500', score: 3},
@@ -8,16 +10,33 @@ function TablePage() {
         { name: 'Lime', color: 'bg-green-500', score: 4}
     ];
 
+    // Configuration for each column of Table component.
+    // Important for this system to work properly number of objects in config 
+    // array should be equal to number of keys in each object in data array 
     const config = [
-        { label: 'Fruits' },
-        { label: 'Color' },
-        { label: 'Score' }
+        { 
+            label: 'Name',
+            render: (fruit) => fruit.name  
+        },
+        { 
+            label: 'Color',
+            render: (fruit) => <div className={`p-3 m-2 ${fruit.color}`}></div>
+        },
+        { 
+            label: 'Score',
+            render: (fruit) => fruit.score
+        }
 
     ];
 
+    // Function to generate unique key for each data row <tbody> section of Table component 
+    const keyFn =(fruit) => {
+        return fruit.name;
+    }
+
     return (
         <div>
-            <Table data={data} config={config} />
+            <Table data={data} config={config} keyFn={keyFn} />
         </div>
     );
 }
