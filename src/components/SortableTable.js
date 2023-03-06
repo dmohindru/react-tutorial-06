@@ -1,3 +1,4 @@
+import { GoArrowSmallDown, GoArrowSmallUp} from 'react-icons/go';
 import Table from './Table';
 import { useState } from 'react';
 
@@ -5,9 +6,15 @@ function SortableTable(props) {
     const [sortOrder, setSortOrder] = useState(null);
     const [sortBy, setSortBy] = useState(null);
 
-    const {config} = props;
+    const {config, data} = props;
 
     const handleClick = (label) => {
+        if (sortBy && label !== sortBy) {
+            setSortOrder('asc');
+            setSortBy(label);
+            return;
+        }
+
         if (sortOrder === null) {
             setSortOrder('asc');
             setSortBy(label);
@@ -29,19 +36,73 @@ function SortableTable(props) {
 
         return {
             ...column,
-            header: () =><th onClick={() => handleClick(column.label)}>{column.label} IS SORTABLE</th>
+            header: () =>(
+                <th 
+                    className='cursor-pointer hover:bg-gray-100' 
+                    onClick={() => handleClick(column.label)}
+                >
+                    <div className='flex items-center'>
+                        {getIcons(column.label, sortBy, sortOrder)}
+                        {column.label}
+                    </div>
+                </th>
+            ),
         }
     });
 
-    // IMPORTANT: since props object will have old config object passed down from 
-    // TablePage component, however we are specify updatedConfig object after original config object
-    // original config object gets overwritten by new config object  
-    return (
-        <div>
-            {sortOrder} - {sortBy}
-            <Table {...props} config={updatedConfig} />
-        </div>
-        );
+    // Only sort data if sortOrder && sortBy are not null
+    // Make a copy of the 'data' prop
+    // Find the correct sortValue function and use it for sorting
+    let sortedData = data;
+    if (sortOrder && sortBy) {
+        const { sortValue } = config.find(column => column.label === sortBy);
+        sortedData = [...data].sort((a, b) => {
+            const valueA = sortValue(a);
+            const valueB = sortValue(b);
+
+            const reverseOrder = sortOrder === 'asc' ? 1 : -1;
+
+            if (typeof valueA === 'string') {
+                return valueA.localeCompare(valueB) * reverseOrder;
+            } else {
+                return (valueA - valueB) * reverseOrder;
+            }
+        })
+
+    }
+
+    
+
+
+
+    // IMPORTANT: since props object will have old config and data object passed down from 
+    // TablePage component, however we are specify updatedConfig and sortedData object after original config object
+    // so original config object gets overwritten by new updatedConfig and data object  
+    return <Table {...props} data={sortedData} config={updatedConfig} />;
+}
+
+function getIcons(label, sortBy, sortOrder) {
+    if (label !== sortBy) {
+        return <div>
+            <GoArrowSmallUp />
+            <GoArrowSmallDown />
+        </div>;
+    }
+
+    if (sortOrder === null) { 
+        return <div>
+            <GoArrowSmallUp />
+            <GoArrowSmallDown />
+        </div>;
+    } else if (sortOrder === 'asc') {
+        return <div>
+            <GoArrowSmallUp />
+        </div>;
+    } else if (sortOrder === 'desc') {
+        return <div>
+            <GoArrowSmallDown />
+        </div>;
+    }
 }
 
 export default SortableTable;
