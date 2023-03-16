@@ -67,6 +67,6 @@ npm install react-icons
 ```
 
 # Important
-- [Brief App descrition](https://www.udemy.com/course/react-redux/learn/lecture/34694954#content)
+- [Brief App description](https://www.udemy.com/course/react-redux/learn/lecture/34694954#content)
 - [TailwindCSS](https://tailwindcss.com/docs/installation)
 - [Bubbling and capturing of events](https://javascript.info/bubbling-and-capturing)
